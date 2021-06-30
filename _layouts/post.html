@@ -1,0 +1,32 @@
+---
+layout: default
+title: Coding with Kurt
+description: Comparing Django with Rails
+---
+<div class="post">
+  <article class="page">
+    <header class="post-header">
+      <h1>{{ page.title }}</h1>
+      <div class="post-byline">
+        Kurt<span> - {{ page.date | date: '%B %d, %Y' }}</span>
+      </div>
+    </header>
+    <aside class="post-aside">
+      <h4>Recent Posts</h4>
+      <ul class="blog-title-list">
+        {% for post in site.posts limit:5 %}
+          <li>
+            <a href="{{ post.url }}">{{ post.title }}</a>
+            <span>Posted: {{ post.date | date: '%B %d, %Y' }}</span>
+          </li>
+        {% endfor %}
+      </ul>
+    </aside>
+    <div class="post-content">
+      {{ content }}
+    </div>
+    <footer class="post-footer">
+      {{ page.postFooter }}
+    </footer>
+  </article>
+</div>

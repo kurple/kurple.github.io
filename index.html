@@ -1,0 +1,34 @@
+---
+layout: default
+---
+
+<div class="home">
+  <div class="home-callout">
+    <h1 class="callout-title">Coding with Kurt</h1>
+    <div class="callout-copy">
+      <p>
+        Hello, world. My name is Kurt and I'm a software developer helping to
+        build the backend (and some of the frontend!) of a web application for a
+        major health insurance company using Python and Django.
+      </p>
+      <p>
+        In this blog, I'd like to take what I'm learning about Django,
+        particularly Django REST Framework, and compare it to Ruby on Rails,
+        particularly Rails in API mode. I hope to create a series of video
+        screencasts and blog posts to help beginners get a handle on the basics
+        of programming (from the point of Python and Ruby) and the basics of
+        backend web development (from the point of view of Django and Rails). I
+        like to think seeing the same problems solved in multiple ways can only
+        be a good thing. I hope that will be my unique pitch.
+      </p>
+      <p>
+        For the frontend, I will focus on Svelte.
+      </p>
+    </div>
+  </div>
+  <div class="home-section">
+    <h4>Most recent post</h4>
+    {% for post in site.posts limit:1 %} {% include post-excerpt.html %} {%
+    endfor %}
+  </div>
+</div>

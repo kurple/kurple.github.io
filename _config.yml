@@ -1,0 +1,10 @@
+markdown: kramdown
+kramdown:
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    default_lang: ruby
+    css_class: 'highlight'
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
