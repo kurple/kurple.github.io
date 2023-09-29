@@ -1,4 +1,4 @@
-I"¹a<h1 id="goal-of-the-api">Goal of the API</h1>
+I"·a<h1 id="goal-of-the-api">Goal of the API</h1>
 
 <p>The purpose is to build out a list of related managers and engineers. A manager can have many subordinate engineers, but an engineer can work under only one manager. The JSON output will look like this:</p>
 
@@ -163,20 +163,20 @@ django-admin startapp engineers
 13
 14
 15
-</pre></td><td class="rouge-code"><pre><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
-<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span><span class="p">,</span> <span class="n">include</span>
-<span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">routers</span>
-<span class="kn">from</span> <span class="nn">managers.views</span> <span class="kn">import</span> <span class="n">ManagerViewSet</span>
-<span class="kn">from</span> <span class="nn">engineers.views</span> <span class="kn">import</span> <span class="n">EngineerViewSet</span>
+</pre></td><td class="rouge-code"><pre><span class="kn">from</span> <span class="n">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<span class="kn">from</span> <span class="n">django.urls</span> <span class="kn">import</span> <span class="n">path</span><span class="p">,</span> <span class="n">include</span>
+<span class="kn">from</span> <span class="n">rest_framework</span> <span class="kn">import</span> <span class="n">routers</span>
+<span class="kn">from</span> <span class="n">managers.views</span> <span class="kn">import</span> <span class="n">ManagerViewSet</span>
+<span class="kn">from</span> <span class="n">engineers.views</span> <span class="kn">import</span> <span class="n">EngineerViewSet</span>
 
 
-<span class="n">router</span> <span class="o">=</span> <span class="n">routers</span><span class="p">.</span><span class="n">DefaultRouter</span><span class="p">()</span>
-<span class="n">router</span><span class="p">.</span><span class="n">register</span><span class="p">(</span><span class="s">'managers'</span><span class="p">,</span> <span class="n">ManagerViewSet</span><span class="p">)</span>
-<span class="n">router</span><span class="p">.</span><span class="n">register</span><span class="p">(</span><span class="s">'engineers'</span><span class="p">,</span> <span class="n">EngineerViewSet</span><span class="p">)</span>
+<span class="n">router</span> <span class="o">=</span> <span class="n">routers</span><span class="p">.</span><span class="nc">DefaultRouter</span><span class="p">()</span>
+<span class="n">router</span><span class="p">.</span><span class="nf">register</span><span class="p">(</span><span class="s">'managers'</span><span class="p">,</span> <span class="n">ManagerViewSet</span><span class="p">)</span>
+<span class="n">router</span><span class="p">.</span><span class="nf">register</span><span class="p">(</span><span class="s">'engineers'</span><span class="p">,</span> <span class="n">EngineerViewSet</span><span class="p">)</span>
 
 <span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="n">path</span><span class="p">(</span><span class="s">'admin/'</span><span class="p">,</span> <span class="n">admin</span><span class="p">.</span><span class="n">site</span><span class="p">.</span><span class="n">urls</span><span class="p">),</span>
-    <span class="n">path</span><span class="p">(</span><span class="s">''</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="n">router</span><span class="p">.</span><span class="n">urls</span><span class="p">))</span>
+    <span class="nf">path</span><span class="p">(</span><span class="s">'admin/'</span><span class="p">,</span> <span class="n">admin</span><span class="p">.</span><span class="n">site</span><span class="p">.</span><span class="n">urls</span><span class="p">),</span>
+    <span class="nf">path</span><span class="p">(</span><span class="s">''</span><span class="p">,</span> <span class="nf">include</span><span class="p">(</span><span class="n">router</span><span class="p">.</span><span class="n">urls</span><span class="p">))</span>
 <span class="p">]</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
@@ -189,11 +189,11 @@ django-admin startapp engineers
 3
 4
 5
-</pre></td><td class="rouge-code"><pre><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+</pre></td><td class="rouge-code"><pre><span class="kn">from</span> <span class="n">django.db</span> <span class="kn">import</span> <span class="n">models</span>
 
 
 <span class="k">class</span> <span class="nc">Manager</span><span class="p">(</span><span class="n">models</span><span class="p">.</span><span class="n">Model</span><span class="p">):</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="nc">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <h3 id="serializerspy">serializers.py</h3>
@@ -207,8 +207,8 @@ django-admin startapp engineers
 7
 8
 9
-</pre></td><td class="rouge-code"><pre><span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">serializers</span>
-<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Manager</span>
+</pre></td><td class="rouge-code"><pre><span class="kn">from</span> <span class="n">rest_framework</span> <span class="kn">import</span> <span class="n">serializers</span>
+<span class="kn">from</span> <span class="n">.models</span> <span class="kn">import</span> <span class="n">Manager</span>
 
 
 <span class="k">class</span> <span class="nc">ManagerSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="p">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
@@ -228,13 +228,13 @@ django-admin startapp engineers
 6
 7
 8
-</pre></td><td class="rouge-code"><pre><span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">viewsets</span>
-<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Manager</span>
-<span class="kn">from</span> <span class="nn">.serializers</span> <span class="kn">import</span> <span class="n">ManagerSerializer</span>
+</pre></td><td class="rouge-code"><pre><span class="kn">from</span> <span class="n">rest_framework</span> <span class="kn">import</span> <span class="n">viewsets</span>
+<span class="kn">from</span> <span class="n">.models</span> <span class="kn">import</span> <span class="n">Manager</span>
+<span class="kn">from</span> <span class="n">.serializers</span> <span class="kn">import</span> <span class="n">ManagerSerializer</span>
 
 
 <span class="k">class</span> <span class="nc">ManagerViewSet</span><span class="p">(</span><span class="n">viewsets</span><span class="p">.</span><span class="n">ModelViewSet</span><span class="p">):</span>
-    <span class="n">queryset</span> <span class="o">=</span> <span class="n">Manager</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="nb">all</span><span class="p">()</span>
+    <span class="n">queryset</span> <span class="o">=</span> <span class="n">Manager</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="nf">all</span><span class="p">()</span>
     <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">ManagerSerializer</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
@@ -249,13 +249,13 @@ django-admin startapp engineers
 5
 6
 7
-</pre></td><td class="rouge-code"><pre><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
-<span class="kn">from</span> <span class="nn">managers.models</span> <span class="kn">import</span> <span class="n">Manager</span>
+</pre></td><td class="rouge-code"><pre><span class="kn">from</span> <span class="n">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+<span class="kn">from</span> <span class="n">managers.models</span> <span class="kn">import</span> <span class="n">Manager</span>
 
 
 <span class="k">class</span> <span class="nc">Engineer</span><span class="p">(</span><span class="n">models</span><span class="p">.</span><span class="n">Model</span><span class="p">):</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
-    <span class="n">manager</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Manager</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="p">.</span><span class="n">CASCADE</span><span class="p">)</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="nc">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+    <span class="n">manager</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="nc">ForeignKey</span><span class="p">(</span><span class="n">Manager</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="p">.</span><span class="n">CASCADE</span><span class="p">)</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <h3 id="serializerspy-1">serializers.py</h3>
@@ -269,8 +269,8 @@ django-admin startapp engineers
 7
 8
 9
-</pre></td><td class="rouge-code"><pre><span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">serializers</span>
-<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Engineer</span>
+</pre></td><td class="rouge-code"><pre><span class="kn">from</span> <span class="n">rest_framework</span> <span class="kn">import</span> <span class="n">serializers</span>
+<span class="kn">from</span> <span class="n">.models</span> <span class="kn">import</span> <span class="n">Engineer</span>
 
 
 <span class="k">class</span> <span class="nc">EngineerSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="p">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
@@ -290,13 +290,13 @@ django-admin startapp engineers
 6
 7
 8
-</pre></td><td class="rouge-code"><pre><span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">viewsets</span>
-<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Engineer</span>
-<span class="kn">from</span> <span class="nn">.serializers</span> <span class="kn">import</span> <span class="n">EngineerSerializer</span>
+</pre></td><td class="rouge-code"><pre><span class="kn">from</span> <span class="n">rest_framework</span> <span class="kn">import</span> <span class="n">viewsets</span>
+<span class="kn">from</span> <span class="n">.models</span> <span class="kn">import</span> <span class="n">Engineer</span>
+<span class="kn">from</span> <span class="n">.serializers</span> <span class="kn">import</span> <span class="n">EngineerSerializer</span>
 
 
 <span class="k">class</span> <span class="nc">EngineerViewSet</span><span class="p">(</span><span class="n">viewsets</span><span class="p">.</span><span class="n">ModelViewSet</span><span class="p">):</span>
-    <span class="n">queryset</span> <span class="o">=</span> <span class="n">Engineer</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="nb">all</span><span class="p">()</span>
+    <span class="n">queryset</span> <span class="o">=</span> <span class="n">Engineer</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="nf">all</span><span class="p">()</span>
     <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">EngineerSerializer</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
@@ -319,11 +319,11 @@ python manage.py migrate
 3
 4
 5
-</pre></td><td class="rouge-code"><pre><span class="n">Manager</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="n">create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">'Alice'</span><span class="p">)</span>
-<span class="n">Engineer</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="n">create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">'Bob'</span><span class="p">,</span> <span class="n">manager</span><span class="o">=</span><span class="n">Manager</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
-<span class="n">Engineer</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="n">create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">'Sarah'</span><span class="p">,</span> <span class="n">manager</span><span class="o">=</span><span class="n">Manager</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
-<span class="n">Engineer</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="n">create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">'Pratik'</span><span class="p">,</span> <span class="n">manager</span><span class="o">=</span><span class="n">Manager</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
-<span class="nb">exit</span><span class="p">()</span>
+</pre></td><td class="rouge-code"><pre><span class="n">Manager</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">'Alice'</span><span class="p">)</span>
+<span class="n">Engineer</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">'Bob'</span><span class="p">,</span> <span class="n">manager</span><span class="o">=</span><span class="n">Manager</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">Engineer</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">'Sarah'</span><span class="p">,</span> <span class="n">manager</span><span class="o">=</span><span class="n">Manager</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">Engineer</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">'Pratik'</span><span class="p">,</span> <span class="n">manager</span><span class="o">=</span><span class="n">Manager</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="nf">exit</span><span class="p">()</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <h2 id="run-server">Run server</h2>
